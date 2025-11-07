@@ -12,12 +12,37 @@ public class Clientes extends Identificacao {
         this.numCompras = numCompras;
     }
 
-    public void compra(){
+    public int getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
+
+    public int getNumCompras() {
+        return numCompras;
+    }
+
+    public void setNumCompras(int numCompras) {
+        this.numCompras = numCompras;
+    }
+
+    public void compra() {
         numCompras++;
         System.out.println("Compra realizada com sucesso!");
-        if (numCompras % 100 == 0){
-            System.out.println("Parabéns! Ganhou um desconto de 1%!");
-        }
     }
-    
+
+
+    public double calcularDesconto() {
+        return (numCompras / 100) * 1.0; 
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n" +
+               "Código de Cliente: " + codigoCliente + "\n" +
+               "Número de Compras: " + numCompras + "\n" +
+               "Desconto: " + calcularDesconto() + "%";
+    }
 }
